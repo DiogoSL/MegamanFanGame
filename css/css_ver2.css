@@ -1,0 +1,151 @@
+body {
+    height:100vh;
+    text-align:center;
+    background-color:navy;
+    background-image:url('mmbn5.jpg'), radial-gradient(100% 75% ellipse at 0 40%, royalblue, #002);
+    background-size:cover;
+    background-position:center right;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    font-family:sans-serif;
+    color:yellow;
+}
+h1, h2 { margin:0.8em; }
+img { max-width:20vw; }
+#go { font-size:1.2em; padding:1ex; margin:0.5em; }
+#msgbox.msgbox, #msgbox.msgbox input {
+    font-size:5vw;
+    color:dimgray;
+}
+ol {
+/*    border:1px solid gainsboro;*/
+    padding-left:1.2em;
+}
+
+/*====== message box base + default style ======*/
+
+.msgbox {
+    display:table;
+    table-layout:fixed;
+    position:fixed;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    opacity:1;
+    transition-property:opacity, top;
+    transition-duration:0.5s, 0s;
+    transition-timing-function:ease-out, linear;
+    transition-delay:0s, 0s;
+}
+.msgbox.disabled {
+    opacity:0;
+    top:-100vh;
+    transition-duration:0.5s, 0s;
+    transition-timing-function:ease-in, linear;
+    transition-delay:0s, 0.5s;
+}
+.msgbox, .msgbox input {
+    font-size:3vw;
+}
+.msgboxCell {
+    display:table-cell;
+    vertical-align:middle;
+    text-align:center;
+}
+.msgboxObj {
+    box-sizing:border-box;
+    display:inline-block;
+    padding:0.8ex;
+    text-align:left;
+    border:0.2ex solid gainsboro;
+    background:whitesmoke;
+    max-width:80vw;
+    position:relative;
+    top:0;
+    transition:top 0.5s ease-out;
+}
+.msgbox.disabled .msgboxObj {
+    top:-100vh;
+    transition:top 0.5s ease-in;
+}
+.msgboxCmd {
+    margin-top:0.8ex;
+    text-align:right;
+}
+.msgbox input[type=text] {
+    box-sizing:border-box;
+    width:100%;
+}
+.msgboxOut {
+    max-height:60vh;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+.msgboxTim {
+    -webkit-appearance:none;
+    appearance:none;
+    visibility:hidden;
+    width:100%;
+    height:0.5ex;
+}
+.msgboxTim::-webkit-progress-value {
+    background:cadetblue;
+}
+.msgboxTim::-webkit-progress-bar {
+    background:gainsboro;
+}
+
+
+/*====== message box styles ======*/
+/* panbox not already debug for key events */
+#panbox {
+    display:block;
+    top:unset;
+    bottom:0;
+    height:auto;
+    max-height:30vh;
+    transition-property:max-height;
+    transition-duration:0;
+    transition-timing-function:linear;
+    transition-delay:0;
+}
+#panbox.disabled {
+    opacity:1;
+    max-height:1em;
+    transition-property:max-height;
+    transition-duration:0;
+    transition-timing-function:linear;
+    transition-delay:0.25s;
+}
+#panbox .msgboxCell {
+    display:block;
+    position:relative;
+    left:0;
+    transition:left 0.5s ease-out 0s;
+}
+#panbox.disabled .msgboxCell {
+    left:-50%;
+    transition:left 0.5s ease-in 0s;
+}
+#panbox .msgboxObj {
+    top:0;
+    left:0;
+    max-width:100vw;
+    width:100vw;
+    background:#333;
+    color:#bbb;
+    border:none;
+    box-shadow:inset 0 1em 2.5em 0.5em rgba(0,0,0,0.8);
+    transition:left 0.5s ease-out 0s;
+}
+#panbox.disabled .msgboxObj {
+    left:-50vh;
+    transition:left 0.5s ease-in 0s;
+}
+#panbox .msgboxOut {
+    max-height:20vh;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
