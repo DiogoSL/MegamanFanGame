@@ -20,11 +20,16 @@ function kit (){
     else if(kit == 2){
         hpyou=200
         ep -=30
-        item3a-=-1
+        item3a -=1
         start()
     }
     else if(kit == 3){
 
+    }
+    else if(kit == 4){
+      ep += 40
+      hpyou -= 30
+      start()
     }
 }
 function start (){
